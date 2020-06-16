@@ -7,8 +7,8 @@ Then(/^I see the text "(.*?)"$/) do |text|
 end
 
 # 1. That you are on the expected page for the Fantasy Name Generator
-Given("I am on the expected page for the Fantasy Name Generator") do
-  find('h2', :text => "Name Generator")
+Given("I am on the expected page") do
+  find("h2", :text => "Name Generator")
 end
 
 Then("I see the current path as {string}") do |sitelink|
@@ -30,7 +30,7 @@ Then("I see {int} name suggestions") do |numberOfSuggestions|
 end
 
 # 3. Select only one category and submit the form
-When("I select {string} button") do |uncheckAllButton|
+Given("I have selected {string} button") do |uncheckAllButton|
   click_on(uncheckAllButton)
 end
 
@@ -52,7 +52,7 @@ Given("I have only selected the {string} category") do |category|
   find("input[value=#{category}]").click
 end
 
-Given("I click submit") do
+When("I click submit") do
   click_on(class: "create_form_submit")
 end
 
@@ -65,15 +65,15 @@ end
 
 # 5. Use the "Suggest" button and validate that a human name has been added to the 
 #human name input field. Submit the form.
-Given("Human name input field is empty") do
+Given("There is no human name suggestion") do
   find(:css, '.sizeMedium').value.empty?
 end
 
-When("I click {string} button for a human name") do |suggest|
+When("I click the {string} button for a human name") do |suggest|
   click_on suggest
 end
 
-When("I see a human name has been added") do
+Then("I see a human name has been added") do
   !find(:css, '.sizeMedium').value.empty?
 end
 
@@ -83,16 +83,16 @@ end
 
 # 6.Validate that the suggested human name (either first or last name) from scenario 5 
 #is present at least once in the list of names
-Given("Human name has been added") do
+Given("A human name has been suggested") do
   click_on "Suggest"
   @humanName = find(:css, '.sizeMedium').value
 end
 
-Given("Form has been submitted") do
+Given("The form has been submitted") do
   click_on(class: "create_form_submit")
 end
 
-Then("A name suggestion includes first or last human name") do
+Then("The human first or last name is included in at least one name result") do
   names = @humanName.split(' ')
   first_name = names[0]
   last_name = names[1]
