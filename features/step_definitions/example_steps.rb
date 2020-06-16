@@ -3,7 +3,7 @@ Given(/^I am on the fantasy name page$/) do
 end
 
 Then(/^I see the text "(.*?)"$/) do |text|
-  page.has_text?('xxxyyyzzz')
+  expect(page).to have_content(text)
 end
 
 # 1. That you are on the expected page for the Fantasy Name Generator
@@ -12,7 +12,7 @@ Given("I am on the expected page for the Fantasy Name Generator") do
 end
 
 Then("I see the current path as {string}") do |sitelink|
-  page.has_current_path?(sitelink)
+  expect(page).to have_current_path(sitelink)
 end
 
 # 2. Submit the form with a specified number of names and validate that the correct number of 
@@ -26,7 +26,7 @@ When("I click {string} button") do |submitButtonName|
 end
 
 Then("I see {int} name suggestions") do |numberOfSuggestions|
-  page.has_css?('name', count: numberOfSuggestions)
+  expect(page).to have_selector('.name', count: numberOfSuggestions)
 end
 
 # 3. Select only one category and submit the form
@@ -43,7 +43,7 @@ When("I click {string}") do |submitButtonName|
 end
 
 Then("I see the title {string}") do |suggestionsTitle|
-  page.has_text?(suggestionsTitle)
+  expect(page).to have_content(suggestionsTitle)
 end
 
 # 4. Validate that the selected category from scenario 3 is present in each entry of the list of names
@@ -59,14 +59,14 @@ end
 Then("I see that {string} is present in each name suggestion") do |category|
   results = page.all(:css, '.name')
   results.each do |result|
-    result.has_text?(category)
+    expect(result).to have_text(category)
   end
 end
 
 # 5. Use the "Suggest" button and validate that a human name has been added to the 
 #human name input field. Submit the form.
 Given("Human name input field is empty") do
-  find(:css, '.sizeMedium').value.empty?
+  expect(find(:css, '.sizeMedium').value).to be_empty
 end
 
 When("I click {string} button for a human name") do |suggest|
@@ -74,7 +74,7 @@ When("I click {string} button for a human name") do |suggest|
 end
 
 When("I see a human name has been added") do
-  !find(:css, '.sizeMedium').value.empty?
+  expect(find(:css, '.sizeMedium').value).not_to be_empty
 end
 
 Then("I click submit form") do

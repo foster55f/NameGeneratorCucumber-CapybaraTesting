@@ -16,5 +16,6 @@ group :test do
   gem 'headless'
   gem 'selenium-webdriver'
   gem 'pry-nav'
+  gem "rspec"
 end
 
