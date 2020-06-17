@@ -86,7 +86,7 @@ Given("A human name has been suggested") do
   @humanName = find("input[name='original_name']").value
 end
 
-Given("The form has been submitted") do
+When("The form has been submitted") do
   click_on("Write me some fantasy names")
 end
 
