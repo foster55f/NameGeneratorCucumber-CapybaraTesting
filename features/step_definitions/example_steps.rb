@@ -17,7 +17,7 @@ end
 
 # 2. Submit the form with a specified number of names and validate that the correct number of suggestions populates
 When("I fill in {string} with {int}") do |_numberOfExamplesQuestion, number|
-  find(:css, "input[name$='count']").set(number)
+  find("input[name$='count']").set(number)
 end
 
 When("I click {string} button") do |submitButtonName|
@@ -56,7 +56,7 @@ When("I click submit") do
 end
 
 Then("I see that {string} is present in each name suggestion") do |category|
-  results = page.all(:css, ".name")
+  results = page.all(".name")
   results.each do |result|
     expect(result).to have_text(category)
   end
