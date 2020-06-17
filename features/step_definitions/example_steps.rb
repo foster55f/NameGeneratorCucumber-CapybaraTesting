@@ -17,15 +17,16 @@ end
 
 # 2. Submit the form with a specified number of names and validate that the correct number of suggestions populates
 When("I fill in {string} with {int}") do |_numberOfExamplesQuestion, number|
-  find(:css, "input[name='count']").set(number)
+  @number = number
+  find("input[name='count']").set(number)
 end
 
 When("I click {string} button") do |submitButtonName|
   click_on(submitButtonName)
 end
 
-Then("I see {int} name suggestions") do |numberOfSuggestions|
-  page.has_css?('name', count: numberOfSuggestions)
+Then("I see that number of name results") do 
+  page.has_css?('name', count: @number)
 end
 
 # 3. Select only one category and submit the form

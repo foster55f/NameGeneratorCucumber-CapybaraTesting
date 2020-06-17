@@ -11,7 +11,7 @@ Feature: An Example Feature
   Scenario: User generates names
     When    I fill in "How many examples of each type would you like to generate?" with 10
     And     I click "Write me some fantasy names" button
-    Then    I see 10 name suggestions
+    Then    I see that number of name results
 
   Scenario: User generates names for one category
     Given   I have selected "Uncheck all" button 
