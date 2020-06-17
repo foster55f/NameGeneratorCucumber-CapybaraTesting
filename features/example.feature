@@ -8,7 +8,7 @@ Feature: An Example Feature
     Given   I am on the expected page
     Then    I see the current path as "https://www.name-generator.org.uk/fantasy/"
 
- Scenario: User generates names
+  Scenario: User generates names
     When    I fill in "How many examples of each type would you like to generate?" with 10
     And     I click "Write me some fantasy names" button
     Then    I see that number of name results
@@ -28,12 +28,12 @@ Feature: An Example Feature
     Given   There is no human name suggestion
     When    I click the "Suggest" button for a human name
     Then    I see a human name has been added
-    #Should this be here? Maybe it shouldn't be included in this scenario but instructions ask for this in Scenario 5
+    #Should this be here? Maybe it shouldn't be here but instructions ask for this in Scenario 5
     Then    I click submit form
 
   Scenario: Human name is included at least once in name results
     Given   A human name has been suggested 
-    And     The form has been submitted
+    When    The form is submitted
     Then    The human first or last name is included in at least one name result
 
 

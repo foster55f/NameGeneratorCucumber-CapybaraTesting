@@ -18,7 +18,7 @@ end
 # 2. Submit the form with a specified number of names and validate that the correct number of suggestions populates
 When("I fill in {string} with {int}") do |_numberOfExamplesQuestion, number|
   @number = number
-  find("input[name$='count']").set(number)
+  find("input[name$='count']").set(@number)
 end
 
 When("I click {string} button") do |submitButtonName|
@@ -86,7 +86,7 @@ Given("A human name has been suggested") do
   @humanName = find("input[name='original_name']").value
 end
 
-When("The form has been submitted") do
+When("The form is submitted") do
   click_on("Write me some fantasy names")
 end
 
