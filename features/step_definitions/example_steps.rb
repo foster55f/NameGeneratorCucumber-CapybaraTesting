@@ -64,7 +64,7 @@ end
 
 # 5.  Submit the form. Use the "Suggest" button and validate that a human name has been added to the human name input field.
 Given("There is no human name suggestion") do
-  expect(find(:css, ".sizeMedium").value).to be_empty
+  expect(find("input[name='original_name']").value).to be_empty
 end
 
 When("I click the {string} button for a human name") do |suggest|
@@ -72,7 +72,7 @@ When("I click the {string} button for a human name") do |suggest|
 end
 
 Then("I see a human name has been added") do
-  expect(find(".sizeMedium").value).not_to be_empty
+  expect(find("input[name='original_name']").value).not_to be_empty
 end
 
 Then("I click submit form") do
@@ -82,7 +82,7 @@ end
 # 6.Validate that the suggested human name (either first or last name) from scenario 5 is present at least once in the list of names
 Given("A human name has been suggested") do
   click_on("Suggest")
-  @humanName = find(:css, ".sizeMedium").value
+  @humanName = find("input[name='original_name']").value
 end
 
 Given("The form has been submitted") do
