@@ -52,7 +52,7 @@ Given("I have only selected the {string} category") do |category|
 end
 
 When("I click submit") do
-  click_on(class: "create_form_submit")
+  click_on("Write me some fantasy names") 
 end
 
 Then("I see that {string} is present in each name suggestion") do |category|
@@ -72,7 +72,7 @@ When("I click the {string} button for a human name") do |suggest|
 end
 
 Then("I see a human name has been added") do
-  expect(find(:css, ".sizeMedium").value).not_to be_empty
+  expect(find(".sizeMedium").value).not_to be_empty
 end
 
 Then("I click submit form") do
@@ -86,14 +86,14 @@ Given("A human name has been suggested") do
 end
 
 Given("The form has been submitted") do
-  click_on(class: "create_form_submit")
+  click_on("Write me some fantasy names")
 end
 
 Then("The human first or last name is included in at least one name result") do
   names = @humanName.split(' ')
   first_name = names[0]
   last_name = names[1]
-  page.assert_selector('.name_heading', text: /^(#{first_name}|#{last_name})/i)
+  page.assert_selector(".name_heading", text: /(#{first_name}|#{last_name})/i)
 end
 
 
