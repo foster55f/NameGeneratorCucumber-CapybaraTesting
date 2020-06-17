@@ -24,7 +24,7 @@ Feature: An Example Feature
     When    I click submit
     Then    I see that "centaur" is present in each name suggestion
 
-  Scenario: User can request a human name suggestion
+  Scenario: User requests a human name suggestion
     Given   There is no human name suggestion
     When    I click the "Suggest" button for a human name
     Then    I see a human name has been added
