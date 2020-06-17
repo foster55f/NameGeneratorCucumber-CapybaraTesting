@@ -6,7 +6,7 @@ Feature: An Example Feature
 
   Scenario: User visits the Fantasy Name Generator
     Given   I am on the expected page
-    Then    I see the current path as 'https://www.name-generator.org.uk/fantasy/'
+    Then    I see the current path as "https://www.name-generator.org.uk/fantasy/"
 
   Scenario: User generates names
     When    I fill in "How many examples of each type would you like to generate?" with 10
@@ -14,10 +14,10 @@ Feature: An Example Feature
     Then    I see 10 name suggestions
 
   Scenario: User generates names for one category
-    Given   I have selected 'Uncheck all' button 
-    When    I select 'Centaur' category from available category checkboxes
+    Given   I have selected "Uncheck all" button 
+    When    I select "Centaur" category from available category checkboxes
     And     I click "Write me some fantasy names" 
-    Then    I see the title 'Best Suggestions'
+    Then    I see the title "Best Suggestions"
 
   Scenario: User sees category in each name result
     Given   I have only selected the "Centaur" category 
