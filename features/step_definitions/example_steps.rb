@@ -29,8 +29,8 @@ Then("I see {int} name suggestions") do |numberOfSuggestions|
 end
 
 # 3. Select only one category and submit the form
-When("I have selected {string} button") do |uncheckAllButtonName|
-  click_on(uncheckAllButtonName)
+Given("I have selected {string} button") do |uncheckAllButton|
+  click_on(uncheckAllButton)
 end
 
 When("I select {string} category from available category checkboxes") do |category|
