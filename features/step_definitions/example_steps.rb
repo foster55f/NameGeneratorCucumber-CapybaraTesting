@@ -16,7 +16,7 @@ Then("I see the current path as {string}") do |url|
 end
 
 # 2. Submit the form with a specified number of names and validate that the correct number of suggestions populates
-When("I fill in How many examples of each type would you like to generate? with {int}") do |number|
+When("I fill in {string} with {int}") do |_numberOfExamplesQuestion, number|
   find(:css, "input[name$='count']").set(number)
 end
 
