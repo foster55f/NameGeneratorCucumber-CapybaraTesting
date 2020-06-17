@@ -6,7 +6,7 @@ Feature: An Example Feature
 
   Scenario: User visits the Fantasy Name Generator
     Given   I am on the expected page
-    Then    I see the current path as 'https://www.name-generator.org.uk/fantasy/'
+    Then    I see the current path as "https://www.name-generator.org.uk/fantasy/"
 
  Scenario: User generates names
     When    I fill in "How many examples of each type would you like to generate?" with 10
